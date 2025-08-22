@@ -1,0 +1,47 @@
+.form-container {
+  min-width: 400px;
+  max-width: 600px;
+}
+
+.device-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.full-width {
+  width: 100%;
+}
+
+mat-dialog-content {
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+mat-dialog-actions {
+  padding: 16px 20px;
+  gap: 8px;
+}
+
+h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px 0;
+  color: #1976d2;
+}
+
+mat-spinner {
+  margin-right: 8px;
+}
+
+mat-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+mat-checkbox {
+  margin-top: 8px;
+}

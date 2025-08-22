@@ -1,0 +1,65 @@
+<div class="houses-container">
+  <div class="page-header">
+    <h1>
+      <mat-icon>home</mat-icon>
+      Houses Management
+    </h1>
+    <div class="header-buttons">
+      <button mat-raised-button color="primary" (click)="addHouse()">
+        <mat-icon>add</mat-icon>
+        Add House
+      </button>
+    </div>
+  </div>
+
+  <mat-card class="houses-card">
+    <mat-card-content>
+      <div class="table-container" *ngIf="houses.length > 0; else noHouses">
+        <table mat-table [dataSource]="houses" class="houses-table">
+          
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let house">{{ house.name }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef>Address</th>
+            <td mat-cell *matCellDef="let house">{{ house.address }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="createdAt">
+            <th mat-header-cell *matHeaderCellDef>Created</th>
+            <td mat-cell *matCellDef="let house">{{ house.createdAt | date:'short' }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let house">
+              <button mat-icon-button color="primary" (click)="editHouse(house)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteHouse(house)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+
+      <ng-template #noHouses>
+        <div class="no-data">
+          <mat-icon>home</mat-icon>
+          <h3>No Houses Found</h3>
+          <p>Start by adding your first house.</p>
+          <button mat-raised-button color="primary" (click)="addHouse()">
+            <mat-icon>add</mat-icon>
+            Add First House
+          </button>
+        </div>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+</div>

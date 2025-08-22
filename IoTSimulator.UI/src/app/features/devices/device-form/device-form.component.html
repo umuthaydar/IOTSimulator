@@ -1,0 +1,61 @@
+<div class="form-container">
+  <mat-dialog-content>
+    <h2 mat-dialog-title>
+      <mat-icon>{{ isEditing ? 'edit' : 'add' }}</mat-icon>
+      {{ isEditing ? 'Edit Device' : 'Add New Device' }}
+    </h2>
+
+    <form [formGroup]="deviceForm" (ngSubmit)="onSubmit()" class="device-form">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Device Name</mat-label>
+        <input matInput formControlName="name" placeholder="Enter device name">
+        <mat-icon matSuffix>devices</mat-icon>
+        <mat-error *ngIf="deviceForm.get('name')?.invalid && deviceForm.get('name')?.touched">
+          {{ getErrorMessage('name') }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Device Type</mat-label>
+        <mat-select formControlName="deviceType" placeholder="Select device type">
+          <mat-option *ngFor="let type of deviceTypes" [value]="type">
+            <mat-icon>{{ getDeviceTypeIcon(type) }}</mat-icon>
+            {{ getDeviceTypeName(type) }}
+          </mat-option>
+        </mat-select>
+        <mat-icon matSuffix>category</mat-icon>
+        <mat-error *ngIf="deviceForm.get('deviceType')?.invalid && deviceForm.get('deviceType')?.touched">
+          {{ getErrorMessage('deviceType') }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Room</mat-label>
+        <mat-select formControlName="roomId" placeholder="Select room">
+          <mat-option *ngFor="let room of rooms" [value]="room.id">
+            {{ room.name }}
+          </mat-option>
+        </mat-select>
+        <mat-icon matSuffix>meeting_room</mat-icon>
+        <mat-error *ngIf="deviceForm.get('roomId')?.invalid && deviceForm.get('roomId')?.touched">
+          {{ getErrorMessage('roomId') }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-checkbox formControlName="isActive" class="full-width">
+        Device is active
+      </mat-checkbox>
+    </form>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="onCancel()" [disabled]="isLoading">
+      Cancel
+    </button>
+    
+    <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="isLoading">
+      <mat-spinner diameter="20" *ngIf="isLoading"></mat-spinner>
+      <span *ngIf="!isLoading">{{ isEditing ? 'Update' : 'Create' }}</span>
+    </button>
+  </mat-dialog-actions>
+</div>

@@ -1,0 +1,242 @@
+.rooms-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  h1 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    color: #1976d2;
+    font-weight: 400;
+    font-size: 2rem;
+  }
+
+  .header-buttons {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+}
+
+.rooms-card {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.rooms-table {
+  width: 100%;
+  min-width: 600px;
+}
+
+.room-name,
+.house-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actions-header {
+  text-align: center;
+  width: 120px;
+}
+
+.actions-cell {
+  text-align: center;
+  padding: 8px 16px;
+
+  button {
+    margin: 0 4px;
+  }
+}
+
+.no-data {
+  text-align: center;
+  padding: 48px 24px;
+  color: #666;
+
+  mat-icon {
+    font-size: 64px;
+    height: 64px;
+    width: 64px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+  }
+
+  h3 {
+    margin: 16px 0 8px 0;
+    font-weight: 400;
+  }
+
+  p {
+    margin-bottom: 24px;
+    color: #999;
+  }
+}
+
+@media (max-width: 768px) {
+  .rooms-container {
+    padding: 16px;
+  }
+  
+  .page-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+// Sensor Data Styles
+.sensor-data-cell {
+  min-width: 300px;
+  padding: 12px 16px;
+}
+
+.sensor-data {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.sensor-status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  
+  mat-icon {
+    font-size: 16px;
+    height: 16px;
+    width: 16px;
+  }
+  
+  .status-text {
+    text-transform: capitalize;
+  }
+}
+
+.sensor-values {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  
+  mat-chip-listbox {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    
+    mat-chip {
+      color: white !important;
+      font-weight: 500;
+      min-height: 32px;
+      border-radius: 16px;
+      
+      // Tüm içerik beyaz olsun
+      * {
+        color: white !important;
+      }
+      
+      // Material Design chip elementleri için
+      .mat-mdc-chip-action-label,
+      .mdc-chip__text,
+      .mat-chip-list-item,
+      .mat-chip-remove {
+        color: white !important;
+      }
+      
+      mat-icon {
+        margin-right: 4px;
+        font-size: 18px;
+        height: 18px;
+        width: 18px;
+        color: white !important;
+      }
+      
+      // Tüm yazıların beyaz olmasını garanti altına al
+      span, .mat-mdc-chip-action-label {
+        color: white !important;
+      }
+    }
+  }
+  
+  .last-update {
+    font-size: 0.75rem;
+    color: white !important;
+    margin-top: 4px;
+    
+    small {
+      color: white !important;
+    }
+  }
+}
+
+.no-sensor-data {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  
+  mat-icon {
+    font-size: 18px;
+    height: 18px;
+    width: 18px;
+  }
+}
+
+// Temperature color variations
+.temp-cold {
+  background-color: #2196F3 !important;
+}
+
+.temp-normal {
+  background-color: #4CAF50 !important;
+}
+
+.temp-hot {
+  background-color: #FF5722 !important;
+}
+
+// Humidity color variations
+.humidity-low {
+  background-color: #FF9800 !important;
+}
+
+.humidity-normal {
+  background-color: #4CAF50 !important;
+}
+
+.humidity-high {
+  background-color: #F44336 !important;
+}
+
+// Connection status colors
+.status-connected {
+  color: #4CAF50 !important;
+}
+
+.status-disconnected {
+  color: #F44336 !important;
+}
+
+.status-unknown {
+  color: #9E9E9E !important;
+}

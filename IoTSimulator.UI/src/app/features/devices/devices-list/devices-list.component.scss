@@ -1,0 +1,181 @@
+.devices-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  h1 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    color: #1976d2;
+    font-weight: 400;
+    font-size: 2rem;
+  }
+}
+
+.devices-card {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.devices-table {
+  width: 100%;
+  min-width: 800px;
+}
+
+.device-name,
+.room-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+mat-chip-set {
+  mat-chip {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    
+    // Device type chip icon styling
+    mat-icon[matChipAvatar] {
+      font-size: 16px !important;
+      height: 16px !important;
+      width: 16px !important;
+    }
+    
+    // Tüm mat-icon'lar için genel hizalama
+    mat-icon {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+  }
+  
+  // Device type chip - turuncu renk
+  .device-type-chip {
+    background-color: #ff9800 !important;
+    color: white !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    padding: 4px 12px !important;
+    
+    mat-icon {
+      color: white !important;
+      font-size: 16px !important;
+      height: 16px !important;
+      width: 16px !important;
+      line-height: 16px !important;
+      vertical-align: middle !important;
+      margin: 0 !important;
+    }
+  }
+  
+  .status-active {
+    background-color: #4caf50 !important;
+    color: white !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    padding: 4px 12px !important;
+    
+    mat-icon {
+      color: white !important;
+      font-size: 16px !important;
+      height: 21px !important;
+      width: 20px !important;
+      line-height: 16px !important;
+      vertical-align: middle !important;
+      margin: 0 !important;
+    }
+  }
+  
+  .status-inactive {
+    background-color: #f44336 !important;
+    color: white !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    padding: 4px 12px !important;
+    
+    mat-icon {
+      color: white !important;
+      font-size: 16px !important;
+      height: 21px !important;
+      width: 20px !important;
+      line-height: 16px !important;
+      vertical-align: middle !important;
+      margin: 0 !important;
+    }
+  }
+}
+
+.actions-header {
+  text-align: center;
+  width: 120px;
+}
+
+.actions-cell {
+  text-align: center;
+  padding: 8px 16px;
+
+  button {
+    margin: 0 4px;
+  }
+}
+
+.no-data {
+  text-align: center;
+  padding: 48px 24px;
+  color: #666;
+
+  mat-icon {
+    font-size: 64px;
+    height: 64px;
+    width: 64px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+  }
+
+  h3 {
+    margin: 16px 0 8px 0;
+    font-weight: 400;
+  }
+
+  p {
+    margin-bottom: 24px;
+    color: #999;
+  }
+}
+
+@media (max-width: 768px) {
+  .devices-container {
+    padding: 16px;
+  }
+  
+  .page-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .devices-table {
+    min-width: 600px;
+  }
+}

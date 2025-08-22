@@ -1,0 +1,82 @@
+<div class="dashboard-container">
+  <div class="page-header">
+    <h1>
+      <mat-icon>dashboard</mat-icon>
+      Dashboard
+    </h1>
+  </div>
+  
+  <div class="stats-grid">
+    <mat-card class="stats-card">
+      <mat-card-content>
+        <div class="stats-content">
+          <mat-icon class="stats-icon">home</mat-icon>
+          <div>
+            <h2>{{ totalHouses }}</h2>
+            <p>Total Houses</p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="stats-card">
+      <mat-card-content>
+        <div class="stats-content">
+          <mat-icon class="stats-icon">meeting_room</mat-icon>
+          <div>
+            <h2>{{ totalRooms }}</h2>
+            <p>Total Rooms</p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="stats-card">
+      <mat-card-content>
+        <div class="stats-content">
+          <mat-icon class="stats-icon">devices</mat-icon>
+          <div>
+            <h2>{{ totalDevices }}</h2>
+            <p>IoT Devices</p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+    
+    <mat-card class="stats-card">
+      <mat-card-content>
+        <div class="stats-content">
+          <mat-icon class="stats-icon" [class.active]="activeDevices > 0">power</mat-icon>
+          <div>
+            <h2>{{ activeDevices }}</h2>
+            <p>Active Devices</p>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="welcome-section">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Welcome to IoT Simulator</mat-card-title>
+        <mat-card-subtitle>Manage your IoT devices and monitor sensor data</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Use the navigation menu to manage your houses, rooms, and IoT devices. 
+           Monitor real-time sensor data and track device performance.</p>
+        
+        <div class="quick-actions">
+          <button mat-raised-button color="primary" routerLink="/houses">
+            <mat-icon>home</mat-icon>
+            Manage Houses
+          </button>
+          <button mat-raised-button color="accent" routerLink="/devices">
+            <mat-icon>devices</mat-icon>
+            View Devices
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

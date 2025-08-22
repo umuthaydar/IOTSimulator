@@ -1,0 +1,43 @@
+<div class="form-container">
+  <mat-dialog-content>
+    <h2 mat-dialog-title>
+      <mat-icon>{{ isEditing ? 'edit' : 'add' }}</mat-icon>
+      {{ isEditing ? 'Edit Room' : 'Add New Room' }}
+    </h2>
+
+    <form [formGroup]="roomForm" (ngSubmit)="onSubmit()" class="room-form">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Room Name</mat-label>
+        <input matInput formControlName="name" placeholder="Enter room name">
+        <mat-icon matSuffix>meeting_room</mat-icon>
+        <mat-error *ngIf="roomForm.get('name')?.invalid && roomForm.get('name')?.touched">
+          {{ getErrorMessage('name') }}
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>House</mat-label>
+        <mat-select formControlName="houseId" placeholder="Select house">
+          <mat-option *ngFor="let house of houses" [value]="house.id">
+            {{ house.name }}
+          </mat-option>
+        </mat-select>
+        <mat-icon matSuffix>home</mat-icon>
+        <mat-error *ngIf="roomForm.get('houseId')?.invalid && roomForm.get('houseId')?.touched">
+          {{ getErrorMessage('houseId') }}
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" (click)="onCancel()" [disabled]="isLoading">
+      Cancel
+    </button>
+    
+    <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="isLoading">
+      <mat-spinner diameter="20" *ngIf="isLoading"></mat-spinner>
+      <span *ngIf="!isLoading">{{ isEditing ? 'Update' : 'Create' }}</span>
+    </button>
+  </mat-dialog-actions>
+</div>
